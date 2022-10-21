@@ -52,44 +52,29 @@
   * argparse
   * sklearn
 
-## Files
-
-* **FeatureConstruction** : some code about gpickle to feature.csv (for training, validation)
-* **Modeling** : some code about training and saving the model
-* **MD(FC)_Model** : save the model with .joblib, e.g. 'rf.joblib'
-* **TestingBin** : some binary for testing
-* **main.py** : the detector(classifier)
-
-- **graphity.py** : module for feature extraction
-- **param_parser.py** : for parsing args
-- **scaler.joblib** : scale the feature vector
 
 ## Usage
 
-* setting path of input file
+* setting path of input file,the feature will be stored in ./feature/
 
   ```
   python main.py --input-path [FILE_PATH]
   ```
 
-* select the model
+* detect the file
 
   ```
-  python main.py --model [MODEL]
+  cd MD_Model
+  python detector.py --model [MODEL]
   ```
 
   MODEL can be rf, knn, svm, mlp, default: mlp
 
-* if you wanna do family classification
-
-  ```
-  python main.py --MDorFC FC
-  ```
-
 * e.g.
 
   ```
-  python -W ignore main.py --input-path .\TestingBin\1100a1693fbe43b0ff29c1d5a36011421752e162171683a7053cc1a342cdb11a --model svm --MDorFC FC
+  python -W ignore main.py --input-path .\TestingBin\1100a1693fbe43b0ff29c1d5a36011421752e162171683a7053cc1a342cdb11a --model svm 
+  python ./MD_Model/detector.py --model svm
   ```
 
   * ignore the warning message by using '-W ignore'
